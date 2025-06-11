@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>장바구니 </title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f5f5f5;
+      padding: 40px 20px;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding: 20px 0;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .item-info img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .item-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item-name {
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .item-price {
+      color: #888;
+    }
+
+    .cart-summary {
+      margin-top: 30px;
+      text-align: right;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #111;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h2>장바구니</h2>
+  <div class="cart-container">
+    <div id="cart-items"></div>
+    <div class="cart-summary">
+      총 금액: <span id="total">0</span>원<br>
+      <a href="http://127.0.0.1:5500/구매.html" class="btn">결제하기</a>
+    </div>
+  </div>
+
+  <script>
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContainer = document.getElementById('cart-items');
+    let total = 0;
+
+    cartItems.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'cart-item';
+      div.innerHTML = `
+        <div class="item-info">
+          <img src="${item.img || 'https://via.placeholder.com/80'}" alt="${item.name}">
+          <div class="item-details">
+            <div class="item-name">${item.name}</div>
+            <div class="item-price">${item.price.toLocaleString()}원</div>
+          </div>
+        </div>
+        <div class="item-price">${item.price.toLocaleString()}원</div>
+      `;
+      cartContainer.appendChild(div);
+      total += item.price;
+    });
+
+    document.getElementById('total').textContent = total.toLocaleString();
+  </script>
+</body>
+</html>
