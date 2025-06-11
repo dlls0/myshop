@@ -1,0 +1,217 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>상품 페이지</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fafafa;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .season-menu {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+    .season-menu button {
+      padding: 12px 25px;
+      cursor: pointer;
+      background-color: #eee;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .season-menu button.active,
+    .season-menu button:hover {
+      background-color: #3399ff;
+      color: white;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+    .product {
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      height: 260px; /* 높이 좀 더 키움 */
+      box-sizing: border-box;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      transition: transform 0.2s;
+    }
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgb(0 0 0 / 0.2);
+    }
+    .product img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+    .product-name {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    .product-price {
+      font-size: 1em;
+      color: #e91e63;
+    }
+  </style>
+</head>
+<body>
+  <h1>상품 페이지</h1>
+
+  <div class="season-menu">
+    <button class="active" data-season="spring">봄</button>
+    <button data-season="summer">여름</button>
+    <button data-season="fall">가을</button>
+    <button data-season="winter">겨울</button>
+  </div>
+
+  <div class="product-grid" id="productGrid"><div class="product">
+          <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F230920_ya_je11sh_02.jpg&amp;type=a340" alt="중청 스커트">
+          <div class="product-name">중청 스커트</div>
+          <div class="product-price">₩25,000</div>
+        </div><div class="product">
+          <img src="https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F240813_sh_0812_je06top_02.jpg&amp;type=a340" alt="스트라이프 셔츠">
+          <div class="product-name">스트라이프 셔츠</div>
+          <div class="product-price">₩30,000</div>
+        </div><div class="product">
+          <img src="https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F240823_sj_0822je_2_t_01.jpg&amp;type=a340" alt="스프라이트 유넥 긴팔티">
+          <div class="product-name">스프라이트 유넥 긴팔티</div>
+          <div class="product-price">₩25,000</div>
+        </div><div class="product">
+          <img src="https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F240812_sh_0808_jn05sk_01.jpg&amp;type=sc960_832" alt="플리츠 스커트">
+          <div class="product-name">플리츠 스커트</div>
+          <div class="product-price">₩32,000</div>
+        </div><div class="product">
+          <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F230824_hk_0821je_05_pants_01.jpg&amp;type=sc960_832" alt="워싱 와이드 데님팬츠">
+          <div class="product-name">워싱 와이드 데님팬츠</div>
+          <div class="product-price">₩38,000</div>
+        </div><div class="product">
+          <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshop-phinf.pstatic.net%2F20250318_75%2F1742267330259Q9gXn_JPEG%2F36727667774138931_1949078062.jpeg&amp;type=a340" alt="더비터 워싱 카고팬츠">
+          <div class="product-name">더비터 워싱 카고팬츠</div>
+          <div class="product-price">₩37,000</div>
+        </div><div class="product">
+          <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2FNNEditor%2F20240213%2Fmobile%2F7dc6f5ae4ddcb3476b07f6a18246fb68_1707798062.jpg&amp;type=sc960_832" alt="가렌스 후드 니트집업">
+          <div class="product-name">가렌스 후드 니트집업</div>
+          <div class="product-price">₩29,500</div>
+        </div><div class="product">
+          <img src="https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F250217_hj_0211je_6_02.jpg&amp;type=sc960_832" alt="토리바 스트랩 미니스커트">
+          <div class="product-name">토리바 스트랩 미니스커트</div>
+          <div class="product-price">₩31,000</div>
+        </div><div class="product">
+          <img src="https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F240920_sh_0912_jn15pt_07.jpg&amp;type=sc960_832" alt="디키든 오버핏 밴딩팬츠">
+          <div class="product-name">디키든 오버핏 밴딩팬츠</div>
+          <div class="product-price">₩36,000</div>
+        </div><div class="product">
+          <img src="https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F241107_sj_1105je_1knt_07%2B.jpg&amp;type=sc960_832" alt="루즈핏 야드리 보트넥 니트">
+          <div class="product-name">루즈핏 야드리 보트넥 니트</div>
+          <div class="product-price">₩33,000</div>
+        </div></div>
+
+  <script>
+    const products = {
+      spring: [
+        {name: '중청 스커트', price: '₩25,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F230920_ya_je11sh_02.jpg&type=a340'},
+        {name: '스트라이프 셔츠',price: '₩30,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F240813_sh_0812_je06top_02.jpg&type=a340'},
+        {name: '스프라이트 유넥 긴팔티', price: '₩25,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F240823_sj_0822je_2_t_01.jpg&type=a340'},
+        {name: '플리츠 스커트', price: '₩32,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F240812_sh_0808_jn05sk_01.jpg&type=sc960_832'},
+        {name: '워싱 와이드 데님팬츠', price: '₩38,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F230824_hk_0821je_05_pants_01.jpg&type=sc960_832'},
+        {name: '더비터 워싱 카고팬츠', price: '₩37,000', img: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fshop-phinf.pstatic.net%2F20250318_75%2F1742267330259Q9gXn_JPEG%2F36727667774138931_1949078062.jpeg&type=a340'},
+        {name: '가렌스 후드 니트집업', price: '₩29,500', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2FNNEditor%2F20240213%2Fmobile%2F7dc6f5ae4ddcb3476b07f6a18246fb68_1707798062.jpg&type=sc960_832'},
+        {name: '토리바 스트랩 미니스커트', price: '₩31,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F250217_hj_0211je_6_02.jpg&type=sc960_832'},
+        {name: '디키든 오버핏 밴딩팬츠', price: '₩36,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F240920_sh_0912_jn15pt_07.jpg&type=sc960_832'},
+        {name: '루즈핏 야드리 보트넥 니트', price: '₩33,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F241107_sj_1105je_1knt_07%2B.jpg&type=sc960_832'},
+      ],
+      summer: [
+        {name: '캡 내장 나시', price: '₩20,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F250207_jh_bb%2B_25.jpg&type=a340'},
+        {name: '유넥 반팔티', price: '₩22,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F240502_ya_0424jk_38top.jpg&type=a340'},
+        {name: '밴딩 트레이닝 바지', price: '₩21,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F240730_mh_0726jn_8_pt_5.jpg&type=a340'},
+        {name: '미니 스커트', price: '₩23,500', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F240313_jh_0307jn11_8.jpg&type=a340'},
+        {name: '버뮤다 카코팬츠', price: '₩25,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F240827_sj_0823ju_13_pt_09.jpg&type=a340'},
+        {name: '청버뮤다 팬츠', price: '₩19,000', img: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fshop-phinf.pstatic.net%2F20240719_206%2F1721359105120PwERi_JPEG%2F72562950132661994_1305304682.jpeg&type=a340'},
+        {name: '찢어진 청바지지', price: '₩24,000', img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA0MjdfMTcx%2FMDAxNjgyNTgwNTgwMDQ5.0DU-MTglKhC5cBnh-xYVzfWLIoP12MeSMYBeJGXlzUkg.1Jol5w2VjHiAlPD-87WtP5g2IH2ss68_XwvVXrrH88Ug.JPEG.smile6211%2F%25BA%25ED%25B7%25A2%25BE%25F7.jpg&type=a340'},
+        {name: '오프숄더 니트트', price: '₩26,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F240417_ya_0415jn_1top_03.jpg&type=a340'},
+        {name: '카고 팬츠', price: '₩20,500', img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20220908_235%2F1662624630319tKJlM_JPEG%2F70089263426060111_2124335092.jpg&type=a340'},
+        {name: '스프라이프 니트', price: '₩22,500', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F250424_jh_0418je1_5.jpg&type=a340'},
+      ],
+      fall: [
+        {name: '레더 점퍼', price: '₩70,000', img: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fshop-phinf.pstatic.net%2F20250304_184%2F1741054391533Oxj87_JPEG%2F30936873360711786_979751613.jpeg&type=sc960_832'},
+        {name: '와이드 스트링 팬츠', price: '₩32,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F240829_sj_0826je_3_pt_05.jpg&type=sc960_832'},
+        {name: '리핏 오프숄더 니트', price: '₩51,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F250210_sj_0206je4knt_05.jpg&type=sc960_832'},
+        {name: '스프라이프 셔츠', price: '₩33,500', img: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fshop-phinf.pstatic.net%2F20240416_288%2F1713234125355MAfQ2_JPEG%2F20545728173131498_55514551.jpeg&type=sc960_832'},
+        {name: '플리츠 미디 스커트', price: '₩35,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F230918_sh_jn7sk_01.jpg&type=sc960_832'},
+        {name: '라릿 피그먼트 프린팅 맨투맨', price: '₩28,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F231025_hk_1024je_06_top_06.jpg&type=sc960_832'},
+        {name: '절개 와이드 데님팬츠', price: '₩29,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2FNNEditor%2F20240304%2Fmobile%2Fcd0226eeb52a511456340f2e79e990e3_1709533933.jpg&type=sc960_832'},
+        {name: '니트 가디건', price: '₩31,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F250124_sj_0121je2knt_07.jpg&type=sc960_832'},
+        {name: '이지드 오프숄더 니트', price: '₩30,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F240320_hj_je3_top_06.jpg&type=sc960_832'},
+        {name: '페스토 와이드 데님팬츠', price: '₩32,000', img: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fshop-phinf.pstatic.net%2F20240920_120%2F1726802074935KdR5f_JPEG%2F12431626709922792_1222403457.jpeg&type=sc960_832'},
+      ],
+      winter: [
+        {name: '패딩', price: '₩90,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F231114_jh_1109jn11_18.jpg&type=a340'},
+        {name: '브이넥 니트', price: '₩32,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F250115_mh_0110KE_08_top_1.jpg&type=sc960_832'},
+        {name: '양털 니트', price: '₩31,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F231219_ya_jn8pt_01.jpg&type=sc960_832'},
+        {name: '플리스 투웨이 집업', price: '₩43,500', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F241112_ya_1108je_1out_10.jpg&type=sc960_832'},
+        {name: '퍼', price: '₩95,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F241218_jh_1216jn2_2.jpg&type=sc960_832'},
+        {name: '레더 점퍼', price: '₩78,000', img: 'https://search.pstatic.net/sunny/?src=http%3A%2F%2Fskfo900815.cafe24.com%2Fweb%2Fupload%2F241217_sh_1212_jn10out_01.jpg&type=sc960_832'},
+        {name: '오프숄더 니트', price: '₩39,000', img: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA0MTVfMTM5%2FMDAxNzEzMTEwMDIzNjI2.aVrRoOSbAzeJFLIbxf-ku4xda4XbPLU_-5DyWo5ORXwg.SfrWtexYyf5rvs23WdqQPZ-nQcL6Fdt1-V4fGfbBVtIg.JPEG%2Foutput_3142741781.jpg&type=sc960_832'},
+        {name: '와이드 코튼 팬츠', price: '₩41,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2F240903_hj_0829je_11pt_02.jpg&type=sc960_832'},
+        {name: '하이넥 패딩집업', price: '₩480,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fblackup.kr%2Fweb%2Fupload%2FNNEditor%2F20231222%2Fmobile%2F64abc984e17a385dbbddcbb5fc273cd2_1703212609.jpg&type=sc960_832'},
+        {name: '비죠 와이드 데님팬츠', price: '₩42,000', img: 'https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcf.product-image.s.zigzag.kr%2Foriginal%2Fd%2F2025%2F5%2F13%2F517_202505131032470095_37113.gif&type=sc960_832_gif'},
+      ],
+    };
+
+    const productGrid = document.getElementById('productGrid');
+    const buttons = document.querySelectorAll('.season-menu button');
+
+    function showProducts(season) {
+      productGrid.innerHTML = '';
+      products[season].forEach(product => {
+        const div = document.createElement('div');
+        div.classList.add('product');
+        div.innerHTML = `
+          <img src="${product.img}" alt="${product.name}" />
+          <div class="product-name">${product.name}</div>
+          <div class="product-price">${product.price}</div>
+        `;
+        productGrid.appendChild(div);
+      });
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const season = button.getAttribute('data-season');
+        showProducts(season);
+      });
+    });
+
+    // 초기 로드 시 봄 상품 보여주기
+    showProducts('spring');
+  </script>
+
+</body>
+</html>
